@@ -8,16 +8,25 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\Bug-Smasher\BugSmasher\BugSmasher\BugSmasher\bin\x86\Debug\Content\background.xnb</Output>
-      <Time>2014-11-03T08:32:23.8016-05:00</Time>
+      <Time>2014-11-06T07:58:36.9234-05:00</Time>
     </Item>
     <Item>
-      <Source>spritesheet.png</Source>
-      <Name>spritesheet</Name>
+      <Source>windows.png</Source>
+      <Name>windows</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\eahscs\Documents\GitHub\Bug-Smasher\BugSmasher\BugSmasher\BugSmasher\bin\x86\Debug\Content\spritesheet.xnb</Output>
-      <Time>2014-11-03T08:32:23.8036-05:00</Time>
+      <Output>C:\Users\eahscs\Documents\GitHub\Bug-Smasher\BugSmasher\BugSmasher\BugSmasher\bin\x86\Debug\Content\windows.xnb</Output>
+      <Time>2014-11-06T07:58:37.2244-05:00</Time>
+    </Item>
+    <Item>
+      <Source>bugs.png</Source>
+      <Name>bugs</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\eahscs\Documents\GitHub\Bug-Smasher\BugSmasher\BugSmasher\BugSmasher\bin\x86\Debug\Content\bugs.xnb</Output>
+      <Time>2014-11-06T07:58:37.2194-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

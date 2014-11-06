@@ -19,6 +19,7 @@ namespace BugSmasher
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Texture2D background;
+        Texture2D BugsSheet;
 
         List<Sprite> bugs;
 
@@ -50,14 +51,21 @@ namespace BugSmasher
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            BugsSheet = Content.Load<Texture2D>("bugs");
+
             bugs = new List<Sprite>();
 
             background = Content.Load<Texture2D>("background");
 
             for (int i = 0; i < 32; i++)
             {
-                //bugs.Add(new Sprite(...));
+                bugs.Add (new Sprite(new Vector2 (55, 39),
+                    BugsSheet,
+                    new Rectangle (1, 1, 0, 47),
+                    new Vector2 (40, 20)));
             }
+
+
 
             // TODO: use this.Content to load your game content here
         }
