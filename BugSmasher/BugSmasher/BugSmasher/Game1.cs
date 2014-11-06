@@ -20,6 +20,7 @@ namespace BugSmasher
         SpriteBatch spriteBatch;
         Texture2D background;
         Texture2D BugsSheet;
+        Random rand = new Random((int)DateTime.UtcNow.Ticks);
 
         List<Sprite> bugs;
 
@@ -57,12 +58,12 @@ namespace BugSmasher
 
             background = Content.Load<Texture2D>("background");
 
-            for (int i = 0; i < 32; i++)
+            for (int i = 0; i < 1000000; i++)
             {
-                bugs.Add (new Sprite(new Vector2 (55, 39),
+                bugs.Add(new Sprite(new Vector2(-50 + rand.Next(-500, 0), rand.Next(50, 700)),
                     BugsSheet,
-                    new Rectangle (1, 1, 0, 47),
-                    new Vector2 (40, 20)));
+                    new Rectangle (rand.Next(0,3)*64, rand.Next(0,2)*64, 64, 64),
+                    new Vector2(100, 0)));
             }
 
 
