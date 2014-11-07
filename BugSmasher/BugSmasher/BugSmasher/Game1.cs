@@ -22,6 +22,11 @@ namespace BugSmasher
         Texture2D BugsSheet;
         Random rand = new Random((int)DateTime.UtcNow.Ticks);
 
+        Vector2 target = new Vector2(10, 100);
+        
+        
+        
+
         List<Sprite> bugs;
 
         public Game1()
@@ -58,13 +63,25 @@ namespace BugSmasher
 
             background = Content.Load<Texture2D>("background");
 
-            for (int i = 0; i < 1000000; i++)
+            for (int i = 0; i < 100; i++)
             {
                 bugs.Add(new Sprite(new Vector2(-50 + rand.Next(-500, 0), rand.Next(50, 700)),
                     BugsSheet,
                     new Rectangle (rand.Next(0,3)*64, rand.Next(0,2)*64, 64, 64),
                     new Vector2(100, 0)));
             }
+        }
+
+            public class bugs()
+            {
+                if (this.Contains(mousePosition)
+                {
+
+                }
+            }
+  
+
+            
 
 
             // TODO: use this.Content to load your game content here
@@ -97,6 +114,12 @@ namespace BugSmasher
                 bugs[i].Update(gameTime);
             }
 
+            var mouseState = Mouse.GetState();
+            var mousePosition = new Point(mouseState.X, mouseState.Y);
+
+
+
+          
             base.Update(gameTime);
         }
 
