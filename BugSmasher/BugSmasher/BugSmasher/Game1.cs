@@ -20,13 +20,14 @@ namespace BugSmasher
         SpriteBatch spriteBatch;
         Texture2D background;
         Texture2D BugsSheet;
+        Texture2D msvecSheet;
         Random rand = new Random((int)DateTime.UtcNow.Ticks);
+        
 
         Vector2 target = new Vector2(10, 100);
-        
-        
-        
 
+
+        Sprite msvec;
         List<Sprite> bugs;
 
         public Game1()
@@ -57,11 +58,23 @@ namespace BugSmasher
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            MouseState ms = Mouse.GetState();
+            
+
+            msvecSheet = Content.Load<Texture2D>("bugs");
+
             BugsSheet = Content.Load<Texture2D>("bugs");
 
             bugs = new List<Sprite>();
 
             background = Content.Load<Texture2D>("background");
+
+           
+            msvec = new Sprite(new Vector2(ms.X, ms.Y),
+                                 msvecSheet,
+                                 new Rectangle(134, 203, 44, 44),
+                                 new Vector2(ms.X, ms.Y));
+               
 
             for (int i = 0; i < 100; i++)
             {
@@ -70,22 +83,10 @@ namespace BugSmasher
                     new Rectangle (rand.Next(0,3)*64, rand.Next(0,2)*64, 64, 64),
                     new Vector2(100, 0)));
             }
-        }
-
-            public class bugs()
-            {
-                if (this.Contains(mousePosition)
-                {
-
-                }
-            }
-  
 
             
-
-
-            // TODO: use this.Content to load your game content here
         }
+
 
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
@@ -114,14 +115,16 @@ namespace BugSmasher
                 bugs[i].Update(gameTime);
             }
 
-            var mouseState = Mouse.GetState();
-            var mousePosition = new Point(mouseState.X, mouseState.Y);
+            msvec.Update(gameTime);
+
+           
 
 
 
           
             base.Update(gameTime);
-        }
+
+        }           
 
         /// <summary>
         /// This is called when the game should draw itself.
@@ -140,6 +143,10 @@ namespace BugSmasher
             {
                 bugs[i].Draw(spriteBatch);
             }
+
+            msvec.Draw(spriteBatch);
+
+            
 
             spriteBatch.End();
 
