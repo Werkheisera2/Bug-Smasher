@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\Bug-Smasher\BugSmasher\BugSmasher\BugSmasher\bin\x86\Debug\Content\background.xnb</Output>
-      <Time>2014-11-10T07:49:11.686-05:00</Time>
+      <Time>2014-11-11T07:26:31.8366-05:00</Time>
     </Item>
     <Item>
       <Source>windows.png</Source>
@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\Bug-Smasher\BugSmasher\BugSmasher\BugSmasher\bin\x86\Debug\Content\windows.xnb</Output>
-      <Time>2014-11-10T07:49:11.698-05:00</Time>
+      <Time>2014-11-11T07:26:31.8476-05:00</Time>
     </Item>
     <Item>
       <Source>bugs.png</Source>
@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\Bug-Smasher\BugSmasher\BugSmasher\BugSmasher\bin\x86\Debug\Content\bugs.xnb</Output>
-      <Time>2014-11-10T07:49:11.689-05:00</Time>
+      <Time>2014-11-11T07:26:31.8396-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

@@ -21,6 +21,7 @@ namespace BugSmasher
         Texture2D background;
         Texture2D BugsSheet;
         Texture2D msvecSheet;
+        Texture2D squishSheet;
         Random rand = new Random((int)DateTime.UtcNow.Ticks);
         
 
@@ -28,11 +29,14 @@ namespace BugSmasher
 
 
         Sprite msvec;
-        List<Sprite> bugs;
+        Sprite squish;
+        List<Bug> bugs;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            
+
             Content.RootDirectory = "Content";
         }
 
@@ -45,6 +49,7 @@ namespace BugSmasher
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            
 
             base.Initialize();
         }
@@ -63,9 +68,11 @@ namespace BugSmasher
 
             msvecSheet = Content.Load<Texture2D>("bugs");
 
+            squishSheet = Content.Load<Texture2D>("bugs");
+
             BugsSheet = Content.Load<Texture2D>("bugs");
 
-            bugs = new List<Sprite>();
+            bugs = new List<Bug>();
 
             background = Content.Load<Texture2D>("background");
 
@@ -73,14 +80,19 @@ namespace BugSmasher
             msvec = new Sprite(new Vector2(ms.X, ms.Y),
                                  msvecSheet,
                                  new Rectangle(134, 203, 44, 44),
-                                 new Vector2(ms.X, ms.Y));
-               
+                                 Vector2.Zero);
 
-            for (int i = 0; i < 100; i++)
+            squish = new Sprite(new Vector2(40, 60),
+                                squishSheet,
+                                new Rectangle(19, 156, 44, 44),
+                                Vector2.Zero);
+
+
+            for (int i = 0; i < 100 ; i++)
             {
-                bugs.Add(new Sprite(new Vector2(-50 + rand.Next(-500, 0), rand.Next(50, 700)),
+                bugs.Add(new Bug(new Vector2(-50 + rand.Next(-500, 0), rand.Next(50, 700)),
                     BugsSheet,
-                    new Rectangle (rand.Next(0,3)*64, rand.Next(0,2)*64, 64, 64),
+                    new Rectangle(rand.Next(0, 3) * 64, rand.Next(0, 2) * 64, 64, 64),
                     new Vector2(100, 0)));
             }
 
@@ -105,15 +117,30 @@ namespace BugSmasher
         protected override void Update(GameTime gameTime)
         {
 
-            this.IsMouseVisible = true;
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+            MouseState ms = Mouse.GetState();
+                msvec.Location = new Vector2(ms.X - msvec.BoundingBoxRect.Width/2, ms.Y - msvec.BoundingBoxRect.Height/2);
+           
+
+
+
             for (int i = 0; i < bugs.Count; i++)
             {
                 bugs[i].Update(gameTime);
+
+
+                if (msvec.IsBoxColliding(bugs[i].BoundingBoxRect) && ms.LeftButton == ButtonState.Pressed)
+                {
+                    bugs[i].Splat();
+                }
             }
+
+            
+
+
 
             msvec.Update(gameTime);
 
@@ -141,7 +168,22 @@ namespace BugSmasher
 
             for (int i = 0; i < bugs.Count; i++)
             {
-                bugs[i].Draw(spriteBatch);
+                if (bugs[i].Dead)
+                    bugs[i].Draw(spriteBatch);
+
+                if (bugs[i].Dead)
+                {
+                    bugs.Add(new Bug(new Vector2(-50 + rand.Next(-500, 0), rand.Next(50, 700)),
+                    BugsSheet,
+                    new Rectangle(rand.Next(0, 3) * 64, rand.Next(0, 2) * 64, 64, 64),
+                    new Vector2(100, 0)));
+                    }
+            }
+
+            for (int i = 0; i < bugs.Count; i++)
+            {
+                if (!bugs[i].Dead)
+                    bugs[i].Draw(spriteBatch);
             }
 
             msvec.Draw(spriteBatch);
