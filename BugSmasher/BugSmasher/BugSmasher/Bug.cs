@@ -24,7 +24,7 @@ namespace BugSmasher
         {
             frames.Clear();
             frames.Add(new Rectangle(0, 128, 128, 128));
-
+            this.TintColor = Color.White;
             this.velocity = Vector2.Zero;
             this.Dead = true;
         }
@@ -37,6 +37,11 @@ namespace BugSmasher
         public override void Draw(SpriteBatch spriteBatch)
         {
             base.Draw(spriteBatch);
+        }
+
+        internal void Remove(int p)
+        {
+            throw new NotImplementedException();
         }
     }
 }

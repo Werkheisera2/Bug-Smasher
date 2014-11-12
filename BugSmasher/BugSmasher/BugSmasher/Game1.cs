@@ -138,17 +138,7 @@ namespace BugSmasher
                 }
             }
 
-            
-
-
-
             msvec.Update(gameTime);
-
-           
-
-
-
-          
             base.Update(gameTime);
 
         }           
@@ -165,19 +155,36 @@ namespace BugSmasher
             spriteBatch.Begin();
 
             spriteBatch.Draw(background, Vector2.Zero, Color.White);
+            MouseState ms = Mouse.GetState();
+
+            if (ms.RightButton == ButtonState.Pressed)
+            {
+                spriteBatch.Draw(background, Vector2.Zero, Color.Red);
+            }
+            else
+            {
+                spriteBatch.Draw(background, Vector2.Zero, Color.White);
+            }
 
             for (int i = 0; i < bugs.Count; i++)
             {
                 if (bugs[i].Dead)
                     bugs[i].Draw(spriteBatch);
 
-                if (bugs[i].Dead)
-                {
-                    bugs.Add(new Bug(new Vector2(-50 + rand.Next(-500, 0), rand.Next(50, 700)),
-                    BugsSheet,
-                    new Rectangle(rand.Next(0, 3) * 64, rand.Next(0, 2) * 64, 64, 64),
-                    new Vector2(100, 0)));
+                    if (bugs[i].Dead)
+                    {
+                        bugs.Add(new Bug(new Vector2(-50 + rand.Next(-500, 0), rand.Next(50, 700)),
+                        BugsSheet,
+                        new Rectangle(rand.Next(0, 3) * 64, rand.Next(0, 2) * 64, 64, 64),
+                        new Vector2(100, 0)));
+
+                        if (bugs.Count > 100)
+                        {
+                            bugs.RemoveAt(10);
+                        }
                     }
+
+                    
             }
 
             for (int i = 0; i < bugs.Count; i++)
