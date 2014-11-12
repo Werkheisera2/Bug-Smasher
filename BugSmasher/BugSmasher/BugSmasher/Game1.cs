@@ -157,7 +157,7 @@ namespace BugSmasher
             spriteBatch.Draw(background, Vector2.Zero, Color.White);
             MouseState ms = Mouse.GetState();
 
-            if (ms.RightButton == ButtonState.Pressed)
+            if (ms.RightButton == ButtonState.Pressed && ms.LeftButton == ButtonState.Pressed)
             {
                 spriteBatch.Draw(background, Vector2.Zero, Color.Red);
             }
@@ -171,7 +171,6 @@ namespace BugSmasher
                 if (bugs[i].Dead)
                     bugs[i].Draw(spriteBatch);
 
-                for 
                     if (bugs[i].Dead)
                     {
                         bugs.Add(new Bug(new Vector2(-50 + rand.Next(-500, 0), rand.Next(50, 700)),
