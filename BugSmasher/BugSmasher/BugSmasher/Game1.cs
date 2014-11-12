@@ -171,17 +171,14 @@ namespace BugSmasher
                 if (bugs[i].Dead)
                     bugs[i].Draw(spriteBatch);
 
+                for 
                     if (bugs[i].Dead)
                     {
                         bugs.Add(new Bug(new Vector2(-50 + rand.Next(-500, 0), rand.Next(50, 700)),
                         BugsSheet,
                         new Rectangle(rand.Next(0, 3) * 64, rand.Next(0, 2) * 64, 64, 64),
                         new Vector2(100, 0)));
-
-                        if (bugs.Count > 100)
-                        {
-                            bugs.RemoveAt(10);
-                        }
+                        bugs.RemoveAt(10);
                     }
 
                     
