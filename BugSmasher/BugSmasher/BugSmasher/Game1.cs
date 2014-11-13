@@ -22,12 +22,13 @@ namespace BugSmasher
         Texture2D BugsSheet;
         Texture2D msvecSheet;
         Texture2D squishSheet;
+        Texture2D RoverSheet;
         Random rand = new Random((int)DateTime.UtcNow.Ticks);
         
 
         Vector2 target = new Vector2(10, 100);
 
-
+        Sprite Rover;
         Sprite msvec;
         Sprite squish;
         List<Bug> bugs;
@@ -180,9 +181,16 @@ namespace BugSmasher
                         
                     }
 
-                    
+                    if (bugs.Count > 10000)
+                        bugs.RemoveAt(10000);
 
-                    
+                    if (bugs.Count < 10)
+                    {
+                        bugs.Add(new Bug(new Vector2(-10 + rand.Next(-500, 0), rand.Next(50, 700)),
+                        BugsSheet,
+                        new Rectangle(rand.Next(0, 3) * 64, rand.Next(0, 2) * 64, 64, 64),
+                        new Vector2(100, 0)));
+                    }
                     
 
                     

@@ -24,7 +24,7 @@ namespace BugSmasher
         {
             frames.Clear();
             frames.Add(new Rectangle(0, 128, 128, 128));
-            this.TintColor = Color.White;
+            this.TintColor = Color.Tomato;
             this.velocity = Vector2.Zero;
             this.Dead = true;
         }
