@@ -173,12 +173,17 @@ namespace BugSmasher
 
                     if (bugs[i].Dead)
                     {
-                        bugs.Add(new Bug(new Vector2(-50 + rand.Next(-500, 0), rand.Next(50, 700)),
+                        bugs.Add(new Bug(new Vector2(-10 + rand.Next(-500, 0), rand.Next(50, 700)),
                         BugsSheet,
                         new Rectangle(rand.Next(0, 3) * 64, rand.Next(0, 2) * 64, 64, 64),
                         new Vector2(100, 0)));
-                        bugs.RemoveAt(10);
+                        
                     }
+
+                    
+
+                    
+                    
 
                     
             }
