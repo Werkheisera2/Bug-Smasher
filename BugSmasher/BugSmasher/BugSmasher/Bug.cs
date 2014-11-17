@@ -9,6 +9,7 @@ namespace BugSmasher
 {
     class Bug : Sprite
     {
+        public int playerscore = 0;
         public bool Dead = false;
         float timeRemaining = 0.0f;
         float TimePerUpdate = 1.00f;

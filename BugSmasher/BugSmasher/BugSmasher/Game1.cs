@@ -22,6 +22,8 @@ namespace BugSmasher
         Texture2D BugsSheet;
         Texture2D msvecSheet;
         Texture2D squishSheet;
+
+        public int playerscore = 0;
         
         Random rand = new Random((int)DateTime.UtcNow.Ticks);
         
@@ -122,17 +124,24 @@ namespace BugSmasher
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            MouseState ms = Mouse.GetState();
+                MouseState ms = Mouse.GetState();
                 msvec.Location = new Vector2(ms.X - msvec.BoundingBoxRect.Width/2, ms.Y - msvec.BoundingBoxRect.Height/2);
+
+
 
                 if (bugs[1].Dead)
                 {
                     bugs.Add(new Bug(new Vector2(-10 + rand.Next(-500, 0), rand.Next(50, 700)),
                         BugsSheet,
                         new Rectangle(rand.Next(0, 3) * 64, rand.Next(0, 2) * 64, 64, 64),
-                        new Vector2(100, 0)));
+                        new Vector2(100, 0)));   
                 }
-           
+
+               //if (ms.LeftButton == ButtonState.Pressed && bugs[1].Dead)
+                   //playerscore += 1;
+
+
+                Window.Title = "Score = " + playerscore;
 
 
 
@@ -140,10 +149,13 @@ namespace BugSmasher
             {
                 bugs[i].Update(gameTime);
 
+                if
+
 
                 if (msvec.IsBoxColliding(bugs[i].BoundingBoxRect) && ms.LeftButton == ButtonState.Pressed)
                 {
                     bugs[i].Splat();
+                    playerscore++;
                 }
             }
 
