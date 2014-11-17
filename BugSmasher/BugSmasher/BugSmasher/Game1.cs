@@ -149,7 +149,10 @@ namespace BugSmasher
             {
                 bugs[i].Update(gameTime);
 
-                if
+                if (bugs[i].IsBoxColliding(bugs[i].BoundingBoxRect))
+                {
+                    bugs[i].NewTarget();
+                }
 
 
                 if (msvec.IsBoxColliding(bugs[i].BoundingBoxRect) && ms.LeftButton == ButtonState.Pressed)

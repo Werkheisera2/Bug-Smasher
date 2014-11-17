@@ -32,6 +32,10 @@ namespace BugSmasher
             this.Dead = true;
         }
 
+        public void Collide()
+        {
+        }
+
         public override void Update(GameTime gameTime)
         {
 
