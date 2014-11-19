@@ -30,6 +30,7 @@ namespace BugSmasher
             this.TintColor = Color.Tomato;
             this.velocity = Vector2.Zero;
             this.Dead = true;
+
         }
 
         public void Collide()

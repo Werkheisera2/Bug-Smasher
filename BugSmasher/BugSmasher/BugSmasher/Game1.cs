@@ -91,7 +91,7 @@ namespace BugSmasher
                                 Vector2.Zero);
 
 
-            for (int i = 0; i < 100 ; i++)
+            for (int i = 0; i < 125 ; i++)
             {
                 bugs.Add(new Bug(new Vector2(-50 + rand.Next(-500, 0), rand.Next(50, 700)),
                     BugsSheet,
@@ -181,7 +181,7 @@ namespace BugSmasher
             spriteBatch.Draw(background, Vector2.Zero, Color.White);
             MouseState ms = Mouse.GetState();
 
-            if (ms.RightButton == ButtonState.Pressed && ms.LeftButton == ButtonState.Pressed)
+            if (ms.RightButton == ButtonState.Pressed)
             {
                 spriteBatch.Draw(background, Vector2.Zero, Color.Red);
             }
